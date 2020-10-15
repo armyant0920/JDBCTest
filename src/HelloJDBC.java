@@ -1,3 +1,5 @@
+import JDBC.Meta;
+
 import java.sql.*;
 import java.util.TreeSet;
 
@@ -21,7 +23,7 @@ public class HelloJDBC {
         ){
             System.out.println(update(st));
             ResultSet rs=st.executeQuery("select*from emp");
-            TreeSet<String> columns=Meta.getTColumns(rs);
+            TreeSet<String> columns= Meta.getTColumns(rs);
             while (rs.next()) {
                 for(String s:columns){
                     System.out.print(String.format("%10s",rs.getString(s))); }
